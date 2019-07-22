@@ -1,0 +1,112 @@
+---
+title: "Mapas"
+output: html_notebook
+---
+
+```{r setup}
+library(tidyverse)
+library(lubridate)
+```
+
+
+https://data.pr.gov/en/Seguridad-P-blica/Incidencia-Crime-Map/3fy3-2bc5
+
+
+```{r}
+crimen <- read_csv("datos/crimen_pr.csv")
+
+crimen
+```
+
+
+```{r}
+library(janitor)
+
+crm <- crimen %>%
+  clean_names() %>%
+  rename(longitud = point_y, latitud = point_x)
+
+crm
+```
+
+```{r}
+crm %>%
+  ggplot() +
+  geom_point(aes(longitud, latitud))
+```
+
+```{r}
+crm <- crimen %>%
+  clean_names() %>%
+  filter(!is.na(point_x), point_x != 0) %>%
+  rename(longitud = point_y, latitud = point_x)
+
+crm %>%
+  ggplot() +
+  geom_point(aes(longitud, latitud))
+```
+
+```{r}
+crm %>%
+  count(delitos_code, sort = TRUE) 
+```
+
+
+```{r}
+crm %>%
+  count(area_policiaca, sort = TRUE)
+```
+
+```{r}
+library(leaflet)
+
+
+crm %>%
+  filter(month(fecha) == 8) %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(~longitud, ~latitud)
+```
+
+```{r}
+crm %>%
+  filter(month(fecha) == 8) %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(~longitud, ~latitud, popup = ~delitos_code)
+```
+
+
+```{r}
+crm %>%
+  filter(month(fecha) == 8) %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(~longitud, ~latitud, popup = ~paste0("Delito: ",delitos_code))
+```
+
+```{r}
+crm %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(~longitud, ~latitud,  popup = ~paste0("Delito: ",delitos_code), clusterOptions = markerClusterOptions())
+```
+
+
+```{r}
+crm %>%
+  filter(delitos_code == "Vehiculo Hurtado") %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(~longitud, ~latitud,  popup = ~paste0("Delito: ",delitos_code), clusterOptions = markerClusterOptions())
+```
+
+
+```{r}
+crm %>%
+  filter(delitos_code == "Vehiculo Hurtado") %>%
+  leaflet() %>%
+  addTiles() %>%
+  addAwesomeMarkers(~longitud, ~latitud,  popup = ~paste0("Delito: ",delitos_code), clusterOptions = markerClusterOptions(), icon = awesomeIcons(icon = "fa-car", library = "fa"))
+```
+
