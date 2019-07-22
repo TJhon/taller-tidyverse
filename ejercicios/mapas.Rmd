@@ -3,11 +3,18 @@ title: "Mapas"
 output: html_notebook
 ---
 
-```{r setup}
+```{r setup, include = FALSE}
 library(tidyverse)
 library(lubridate)
+library(leaflet)
+library(janitor)
 ```
 
+```{r}
+library(tidyverse)
+library(lubridate)
+library(leaflet)
+```
 
 https://data.pr.gov/en/Seguridad-P-blica/Incidencia-Crime-Map/3fy3-2bc5
 
@@ -40,22 +47,47 @@ crm <- crimen %>%
   clean_names() %>%
   filter(!is.na(point_x), point_x != 0) %>%
   rename(longitud = point_y, latitud = point_x)
+```
 
+
+```{r, fig.width = 10, fig.height = 3}
 crm %>%
   ggplot() +
   geom_point(aes(longitud, latitud))
 ```
 
 ```{r}
-crm %>%
-  count(delitos_code, sort = TRUE) 
+pr <- map_data("world", region = "Puerto Rico")
+
 ```
 
-
-```{r}
-crm %>%
-  count(area_policiaca, sort = TRUE)
+```{r, fig.width = 10, fig.height = 3}
+ggplot() +
+  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud), color = "blue", size = 0.2, data = crm) +
+  theme_void()
+  
 ```
+
+```{r, fig.width = 10, fig.height = 3}
+ggplot() +
+  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud, color = area_policiaca), size = 0.2, data = crm) +
+  theme_void() +
+  theme(legend.position = "bottom")
+  
+```
+
+```{r, fig.width = 10, fig.height = 4}
+ggplot() +
+  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud, color = area_policiaca), size = 0.2, data = crm) +
+  theme_void() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~delitos_code)
+```
+
+## leaflet
 
 ```{r}
 library(leaflet)
