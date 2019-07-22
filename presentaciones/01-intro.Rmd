@@ -1,0 +1,82 @@
+---
+output:
+  xaringan::moon_reader:
+    css: "include/aprender.css"
+    nature:
+      countIncrementalSlides: yes
+      highlightLines: yes
+      highlightStyle: github
+      ratio: 16:9
+resource_files:
+  - include
+  - images
+---
+---
+class:regular
+# Necesita herramientas que...
+
+
+--
+* Fácil de empezar a aprender
+
+
+--
+* Fácil de utilizar
+
+
+--
+* Apoyan análisis pequeños y grandes
+
+
+--
+* Habilidades útiles afuera de la universidad
+
+
+---
+class: dark, middle, center
+# ¿Por que **R**?
+
+---
+class: regular
+# Ventajas de **R**
+
+
+--
+* Lenguaje hecho por, y para estadísticos
+
+
+--
+*  Fácil de aprender
+
+
+--
+*  Comunidad mundial, y amigable
+
+
+--
+*  Integración con otros sistemas
+
+
+--
+*  Es grátis!
+
+
+---
+class: dark, middle, center
+# ¿Que cubriremos?
+
+---
+class: regular
+# Herramientas
+
+
+--
+* R
+
+
+--
+* Paquetes de R
+
+
+--
+* RStudio

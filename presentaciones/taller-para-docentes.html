@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Taller Tidyverse</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Edgar Ruiz" />
+    <link rel="stylesheet" href="include/aprender.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Taller Tidyverse
+## Universidad de Puerto Rico
+### Edgar Ruiz
+### Julio 2019
+
+---
+
+
+
+
+---
+class:regular
+# Necesita herramientas que...
+
+
+--
+* Fácil de empezar a aprender
+
+
+--
+* Fácil de utilizar
+
+
+--
+* Apoyan análisis pequeños y grandes
+
+
+--
+* Habilidades útiles afuera de la universidad
+
+
+---
+class: dark, middle, center
+# ¿Por que **R**?
+
+---
+class: regular
+# Ventajas de **R**
+
+
+--
+* Lenguaje hecho por, y para estadísticos
+
+
+--
+*  Fácil de aprender
+
+
+--
+*  Comunidad mundial, y amigable
+
+
+--
+*  Integración con otros sistemas
+
+
+--
+*  Es grátis!
+
+
+---
+class: dark, middle, center
+# ¿Que cubriremos?
+
+---
+class: regular
+# Herramientas
+
+
+--
+* R
+
+
+--
+* Paquetes de R
+
+
+--
+* RStudio
+
+
+---
+class: dark, middle, center
+# Paquetes en R
+
+---
+class: regular
+
+# ¿Que es un paquete en R?
+
+
+--
+* **Expande las habilidades de R**
+
+
+--
+* Programa que **agrega funciones y/o datos** a su sesión de R
+
+
+--
+* Se instala después de instalar R
+
+
+--
+* La fuente más importante se llama CRAN
+
+
+---
+class: regular
+
+# ¿Como se instala un paquete?
+
+
+--
+* Un comando dentro de R baja e instala el paquete
+
+
+--
+* La mayoría de paquetes son bajados de Internet
+
+
+--
+* Para usar un paquete ya instalado, use `library()`
+
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Usar R
+### **Archivo:** 01-librerias.Rmd
+
+
+
+---
+class: title-slide, middle, center
+# Visualizar datos
+
+
+---
+class: dark, middle, center
+# Paquete `ggplot2`
+
+
+---
+class: regular
+# Como funciona `ggplot2`
+
+
+--
+* Implementa la **gramática de las gráficas** en **R**
+
+
+--
+* Cualquier gráfica usando: *datos, coordenadas y objetos geométricos (`geoms`)*
+
+
+--
+* Asignar variables a las **propiedades visuales** 
+
+
+--
+* Se programa por **capas**
+
+
+---
+class:regular
+# Capa 1
+
+
+```r
+ggplot()
+```
+&lt;img src="include/03-capa1.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
+
+---
+class:regular
+# Capa 2
+
+
+```r
+ggplot() + 
+  geom_col(aes(cyl, mpg), data = mtcars)
+```
+&lt;img src="include/03-capa2.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
+---
+class:regular
+# Capa 3
+
+
+```r
+ggplot() + geom_col(aes(cyl, mpg), data = mtcars) + 
+  labs(title = "Millas por Galon")
+```
+&lt;img src="include/03-capa3.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Crear gráficas
+### **Archivos:** 02-graficas.Rmd y 03-graficas.Rmd
+
+
+---
+class: title-slide, middle, center
+# Análisis de Datos
+
+---
+
+
+class: regular
+# Pasos del análisis 
+
+&lt;img src="include/05-pasos-1.png" width="1000" height="400" style="display: block; margin: auto;" /&gt;
+
+---
+class: regular
+# Todos corren en **R**
+
+&lt;img src="include/05-pasos-2.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+
+---
+class: regular
+#  **Paquetes de R** facilitan el análisis
+
+&lt;img src="include/05-pasos-3.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+
+---
+class: title-slide, middle, center
+# Introduciendo el `tidyverse`
+
+---
+class: regular
+# ¿Que es el `tidyverse`?
+
+.left-column[
+&lt;img src="include/hex/tidyverse.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+]
+
+.right-column[
+
+* Una colección de paquetes de R
+
+* Diseñados para la Ciencia de Datos
+
+* Todos utilizan la misma **filosofía de diseño**, **gramática** y **estructuras de datos**.
+
+]
+
+---
+class: regular
+# La meta del `tidyverse`
+### Resolver problemas complicados mediante la combinación de diferentes piezas que son consistentes unas con otras.
+
+&lt;img src="include/05-meta-tidyverse.png" width="400" height="350" style="display: block; margin: auto;" /&gt;
+
+---
+class: regular
+# Lo que cubre el `tidyverse` 
+
+&lt;img src="include/cubre-tidyverse.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+
+---
+class: dark, middle, center
+# Paquetes del `tidyverse`
+
+---
+class: regular
+
+# Leér
+
+.left-column[
+&lt;img src="include/05-paquetes-leer.png" width="330" height="400" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+* `readr` - Archivos CSV, texto
+
+* `jsonlite` - Archivos JSON
+
+* `readxl` - Archivos Excel
+
+* `rvest` - Páginas Web
+
+* `xml2` - Archivos XML
+]
+
+---
+class: regular
+
+# Ordenar y Transformar
+
+.left-column[
+&lt;img src="include/05-paquetes-ordenar.png" width="300" height="400" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+* `tidyr` - Ordernar datos
+
+* `dplyr` - Transformar datos
+
+* `stringr` - Manejo de texto
+
+* `lubridate` - Para fechas
+
+* `forcats` - Factoriales
+]
+---
+class: regular
+
+# Visualizar
+
+.left-column[
+&lt;img src="include/hex/ggplot2.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+* `ggplot2` - Visualizar datos
+]
+
+---
+class: regular
+
+# Otros
+
+.left-column[
+&lt;img src="include/hex/purrr.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+* `purrr` - Programación funcional (para ciclos ó repeticiones)
+]
+
+---
+class: dark, middle, center
+# Los principios del `tidyverse`
+
+---
+class: regular
+## ¿Cual es más fácil de léer?
+
+--
+### 1. **R** convencional
+
+```r
+au &lt;- millas[millas$fabricante == "audi", ]
+tb &lt;- table(au$modelo)
+gr &lt;- data.frame(modelo = names(tb), n = as.integer(tb))
+gr 
+```
+
+--
+### 2. Estilo **tidyverse**
+
+```r
+millas %&gt;%
+  filter(fabricante == "audi") %&gt;%
+  count(modelo)
+```
+
+---
+class: regular
+## Principio #1 – Cada función es un paso 
+
+```r
+millas %&gt;%
+  filter(fabricante == "audi") %&gt;%
+  count(modelo)
+```
+
+.left-column[
+`read_csv()` - "lea archivo CSV..."
+
+`select()` - "seleccionar..."
+
+`filter()` - "filtrar..."
+
+`mutate()` - "crear columna..."
+
+`summarise()` - "sumarizar..."
+
+`group_by()` - "agrupar..."
+
+]
+
+.right-column[
+
+`count()` - "contar por..."
+
+`arrange()` - "ordernar..."
+
+`gather()` - "columnas a líneas..."
+
+`spread()` - "líneas a  columnas..."
+
+`separate()` - "separa en columnas..."
+
+`unite()` - "combina comlumnas..."
+]
+
+
+
+---
+class: regular
+## Principio #2 - Combine con `%&gt;%`
+
+### Fácil de léer y alterar el análisis
+
+```r
+millas %&gt;%
+  filter(fabricante == "honda") %&gt;%
+  count(anio)
+```
+
+```r
+## # A tibble: 2 x 2
+##    anio     n
+##    &lt;int&gt; &lt;int&gt;
+## 1  1999     5
+## 2  2008     4
+```
+
+---
+class: regular
+## Principio #3 - Use datos *ordenados*
+
+--
+1. Cada línea es una observación
+
+--
+1. Cada columna es una variable
+
+--
+1. Cada celda es un valor
+
+--
+
+```r
+## # A tibble: 7 x 6
+##   fabricante modelo motor  anio cilindros transmision
+##   &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;      
+## 1 audi       a4       1.8  1999         4 auto(l5)   
+## 2 audi       a4       1.8  1999         4 manual(m5) 
+## 3 audi       a4       2    2008         4 manual(m6) 
+## 4 audi       a4       2    2008         4 auto(av)   
+## 5 audi       a4       2.8  1999         6 auto(l5)   
+```
+---
+class: regular
+# Los principios del `tidyverse`
+
+
+
+--
+## 1. Cada función representa un paso
+
+
+--
+## 2. Las funciones se combinan con `%&gt;%`
+
+
+--
+## 3. Use datos ordenados
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Analizar Datos con el `tidyverse`
+### **Archivo:** 04-tidyverse.Rmd
+
+
+---
+class: title-slide, middle, center
+# Modelar con **R**
+
+---
+class: dark, middle, center
+# Paquetes para exploración
+
+---
+# Analisis rápido con `skimr`
+
+
+```r
+library(skimr)
+skim(millas) 
+```
+&lt;img src="include/skimr.png" width="750" height="380" style="display: block; margin: auto;" /&gt;
+
+---
+# Correlaciones con `corrr`
+
+### Paquete especializado en el manejo de correlaciones. 
+
+.left-column[
+```r
+library(corrr)
+
+millas %&gt;% 
+ select_if(is.numeric) %&gt;%
+ correlate() %&gt;% 
+ shave()  %&gt;% 
+ rplot()
+```
+]
+
+.right-column[
+&lt;img src="include/corrr.png" width="600" height="350" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Analyzar `vehiculos`
+### **Archivo:** 05-vehiculos.Rmd
+
+---
+class: dark, middle, center
+# Introduciendo `tidymodels`
+
+---
+class: regular
+
+#`tidymodels`
+
+.left-column[
+&lt;img src="include/06-tidymodels_hex.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+### Conjunto de paquetes para modelamiento y análisis estadístico  
+### Comparten la misma filosofía de diseño, grámatica, y estructuras que el `tidyverse`
+]
+
+---
+class: regular
+# Lo que cubre el `tidymodels` 
+
+&lt;img src="include/cubre-tidymodels.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+
+---
+class: regular
+
+# Paquetes del `tidymodels`
+
+.left-column[
+&lt;img src="include/tidymodels-first.png" width="250" height="400" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+* `rsample` - Para re-tomar **muestras** de datos 
+
+* `broom` - Modelos de R en tablas ordenadas
+
+* `yardstick` - **Evaluar** modelos
+
+* `recipes` - Para **pre-procesar datos**
+
+]
+
+---
+class: regular
+# Paquetes del `tidymodels`
+
+.left-column[
+&lt;img src="include/tidymodels-second.png" width="220" height="400" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+* `infer` - Inferencias estadísticas
+
+* `tidypredict` - Traduce predicciones a SQL
+
+* `tidyposterior` - Compara modelos Bayes
+
+* `tidytext` - Datos de texto
+]
+
+---
+class: regular
+
+# Muestra de datos con `rsample`
+
+### `initial_split()` automáticamente divide los datos para entrenamiento y prueba.  En este caso, las 234 observaciones se dividieron en **176 para entrenamiento y 58 para prueba**.
+
+```r
+library(rsample)
+partir &lt;- initial_split(millas)
+partir
+```
+```r
+## &lt;176/58/234&gt;
+```
+---
+class: regular
+
+# Resultados de modelos
+
+```r
+modelo &lt;- lm(ciudad ~ motor + anio, data = training(partir))
+summary(modelo)
+```
+```r
+## Call:
+## lm(formula = ciudad ~ motor + anio, data = training(partir))
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6.6687 -1.3551 -0.1406  0.9770 14.2941 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -130.10433   74.95257  -1.736   0.0839 .  
+## motor         -2.67072    0.13070 -20.434   &lt;2e-16 ***
+## anio           0.07798    0.03744   2.083   0.0384 *  
+```
+
+---
+class: regular
+
+# Resultados ordenados con `broom`
+
+```r
+library(broom); tidy(modelo)
+```
+```r
+##   term         estimate std.error statistic  p.value
+##   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept) -130.       75.0        -1.74 8.39e- 2
+## 2 motor         -2.67      0.131     -20.4  1.07e-53
+## 3 anio           0.0780    0.0374      2.08 3.84e- 2
+```
+
+```r
+glance(modelo)
+```
+```r
+##   r.squared adj.r.squared sigma statistic  p.value    df  
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt; 
+## 1     0.644         0.641  2.55      209. 1.40e-52     3 
+```
+
+---
+class: regular
+
+# Evalúe modelos con `yardstick`
+
+```r
+library(yardstick)
+modelo %&gt;%
+  augment(newdata = testing(partir)) %&gt;% 
+  metrics(ciudad, .fitted)
+```
+```r
+## # A tibble: 3 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard       2.43 
+## 2 rsq     standard       0.684
+## 3 mae     standard       1.80 
+```
+---
+class: exercise, middle, center
+
+## Ejercicio
+# Modelos con `tidymodels`
+### **Archivo:** 06-tidymodels.Rmd
+
+---
+class: dark, middle, center
+# Modelo por sección
+
+---
+class: regular
+
+# `group_nest()`
+
+```r
+partir %&gt;%
+  training() %&gt;%
+  group_nest(cilindros)
+```
+```r
+## # A tibble: 4 x 2
+##   cilindros data              
+##       &lt;int&gt; &lt;list&gt;            
+## 1         4 &lt;tibble [58 × 10]&gt;
+## 2         5 &lt;tibble [3 × 10]&gt; 
+## 3         6 &lt;tibble [65 × 10]&gt;
+## 4         8 &lt;tibble [50 × 10]&gt;
+```
+
+---
+class: regular
+
+# `map()`
+
+```r
+partir %&gt;%
+  training() %&gt;%
+  group_nest(cilindros) %&gt;%
+  mutate(modelo = map(data, ~lm(ciudad ~ motor, data = .x)))
+```
+```r
+## # A tibble: 4 x 3
+##   cilindros data               modelo
+##       &lt;int&gt; &lt;list&gt;             &lt;list&gt;
+## 1         4 &lt;tibble [58 × 10]&gt; &lt;lm&gt;  
+## 2         5 &lt;tibble [3 × 10]&gt;  &lt;lm&gt;  
+## 3         6 &lt;tibble [65 × 10]&gt; &lt;lm&gt;  
+## 4         8 &lt;tibble [50 × 10]&gt; &lt;lm&gt;  
+```
+
+---
+class: regular
+# `map()` + `unnest()` 
+
+```r
+partir %&gt;%
+  training() %&gt;%
+  group_nest(cilindros) %&gt;%
+  mutate(modelo = map(data, ~lm(ciudad ~ motor, data = .x)),
+         resultados = map(modelo, glance)) %&gt;%
+  unnest(resultados)
+```
+```r
+##   cilindros data          modelo r.squared adj.r.squared sigma
+##       &lt;int&gt; &lt;list&gt;        &lt;list&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
+## 1         4 &lt;tibble [58 … &lt;lm&gt;      0.236        0.222   3.23
+## 2         5 &lt;tibble [3 ×… &lt;lm&gt;      0            0       0.577
+## 3         6 &lt;tibble [65 … &lt;lm&gt;      0.290        0.279   1.42
+## 4         8 &lt;tibble [50 … &lt;lm&gt;      0.0218       0.00141 1.65
+```
+---
+class: exercise, middle, center
+## Ejercicio
+# Modelos por segmentos
+### **Archivo:** 07-modelos.Rmd
+
+
+---
+class: title-slide, middle, center
+# Comunicar con **R**
+
+---
+class: regular
+# El último paso...
+
+&lt;img src="include/cubre-rmarkdown.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+
+---
+class: title-slide, middle, center
+# Introduciendo `rmarkdown`
+
+---
+class: regular
+## R Markdown
+
+.left-column[
+&lt;img src="include/hex/rmarkdown.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+]
+
+.right-column[
+* Combina **bloques de código** y narración
+
+
+* Se ejecuta complete o en bloques
+
+
+* Multiples lenguajes (R, SQL, pythong, etc.)
+
+]
+
+---
+class: regular
+# Los resultados
+
+.left-column[
+* Compilar en HTML, PDF, Word
+
+
+* Resultados se pueden publicar
+]
+
+.right-column[
+&lt;img src="include/04-notebook-preview.png" width="500" height="400" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: regular
+## Tipos de resultados
+
+.left-column[
+&lt;img src="include/rmarkdown-packages.png" width="300" height="400" style="display: block; margin: auto;" /&gt;
+]
+
+.right-column[
+* Artículos y Reportes
+
+* Diapositivas
+
+* Libros
+
+* Lugares de internet
+
+* Tableros
+]
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Documentos de `rmarkdown` 
+### **Archivos:** 08-presentacion.Rmd, 09-flexdashboard.Rmd
+
+---
+class: title-slide, middle, center
+# Introduciendo `shiny`
+
+---
+class: regular
+## ¿Que es `shiny`?
+
+.left-column[
+&lt;img src="include/hex/shiny.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+]
+
+.right-column[
+* Permite crear aplicaciones interactivas
+
+* No hay necesidad de aprender HTML or JavaScript
+
+]
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Aplicaciones `shiny` 
+### **Archivo:** 10-aplicacion.R
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"countIncrementalSlides": true,
+"highlightLines": true,
+"highlightStyle": "github",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
