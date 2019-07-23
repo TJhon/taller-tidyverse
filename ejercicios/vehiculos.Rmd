@@ -40,23 +40,61 @@ skim(actuales)
 ```{r}
 actuales %>%
   select_if(is.numeric) %>%
-  correlate()
+  correlate(quiet = TRUE)
 ```
 
 5. La función `rplot()` crea una gráfica fácilmente
 ```{r}
 actuales %>%
   select_if(is.numeric) %>%
-  correlate() %>%
-  rplot()
+  correlate(quiet = TRUE, diagonal = 1) %>%
+  rplot(shape = 15, colors = c("blue", "orange"))
 ```
 
-6. La función `shave()` quita los valores duplicados
+6. La función `network_plot()` muestra las connecciones entre las variables
+
+```{r}
+actuales %>%
+  select_if(is.numeric) %>%
+  correlate(quiet = TRUE) %>%
+  network_plot()
+```
+
+7. La función `shave()` quita los valores duplicados
+
 ```{r}
 actuales %>%
   select_if(is.numeric) %>%
   correlate() %>%
-  shave() %>%
-  rplot()
+  shave()
 ```
 
+8. La función `focus()` filtra las correlaciones de las variables seleccionads
+
+```{r}
+actuales %>%
+  select_if(is.numeric) %>%
+  correlate() %>%
+  focus(autopista)
+```
+
+9. La función `stretch()` permite convertir las correlaciones en pares
+
+```{r}
+actuales %>%
+  select_if(is.numeric) %>%
+  select(-id) %>%
+  correlate() %>%
+  stretch() 
+```
+
+10. Combine con `dplyr` para determinar cuales posibles predictores pueden tener alta correlación
+
+```{r}
+actuales %>%
+  select_if(is.numeric) %>%
+  select(-id, -autopista, -ciudad) %>%
+  correlate() %>%
+  stretch(remove.dups = TRUE, na.rm = TRUE)  %>%
+  arrange(desc(abs(r)))
+```
