@@ -510,7 +510,71 @@ class: exercise, middle, center
 class: title-slide, middle, center
 # Mapas con R
 
+---
+class: dark, middle, center
+# `ggplot2`
 
+---
+class: regular
+### Use `map_data()` y `geom_map()` para crear mapas 
+
+
+
+```r
+pr &lt;- map_data("world", region = "Puerto Rico")
+ggplot() + geom_map(aes(long, lat, map_id = region), 
+                    fill = "gray",  map = pr, data = pr) 
+```
+&lt;img src="_include/mapa-1.png" width="1000" height="300" style="display: block; margin: auto;" /&gt;
+---
+class: regular
+### Agrege más capas para completar el mapa
+
+
+```r
+ggplot() + geom_map(aes(long, lat, map_id = region), 
+                    fill = "gray",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud), size = 0.4, data = crm)
+```
+&lt;img src="_include/mapa-2.png" width="1000" height="300" style="display: block; margin: auto;" /&gt;
+
+---
+class: dark, middle, center
+# Introduciendo `leaflet`
+
+---
+class: regular
+### Mapas se generan por capas
+
+
+```r
+leaflet() %&gt;% addTiles() 
+```
+&lt;img src="_include/leaflet2.png" width="850" height="350" style="display: block; margin: auto;" /&gt;
+
+---
+class: regular
+### Puntos de interes se agregan en otra capa
+
+
+```r
+leaflet() %&gt;% addTiles() %&gt;%
+  addMarkers(~longitud, ~latitud, 
+             data = filter(crm, month(fecha) == 8))
+```
+&lt;img src="_include/leaflet1.png" width="850" height="350" style="display: block; margin: auto;" /&gt;
+
+---
+class: regular
+### Es facíl agregar grupos
+
+
+```r
+leaflet() %&gt;% addTiles() %&gt;% addMarkers(
+  ~longitud, ~latitud, data = filter(crm, month(fecha) == 8), 
+  clusterOptions = markerClusterOptions())
+```
+&lt;img src="_include/leaflet3.png" width="850" height="350" style="display: block; margin: auto;" /&gt;
 
 
 ---
