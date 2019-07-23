@@ -10,21 +10,22 @@ library(leaflet)
 library(janitor)
 ```
 
+# Datos
+
+Los datos provistos por esta aplicación constituyen estadísticas operacionales de la Policía de Puerto Rico. Su finalidad es única y exclusivamente como medio informativo y pueden no reflejar los porcentajes actuales. https://data.pr.gov/en/Seguridad-P-blica/Incidencia-Crime-Map/3fy3-2bc5. Una copia parcial está disponible en el folder `datos/`.
+
 ```{r}
 library(tidyverse)
 library(lubridate)
 library(leaflet)
 ```
 
-https://data.pr.gov/en/Seguridad-P-blica/Incidencia-Crime-Map/3fy3-2bc5
-
-
 ```{r}
 crimen <- read_csv("datos/crimen_pr.csv")
-
 crimen
 ```
 
+El paquete `janitor` se puede usar para limpiar los nombres de las columnas
 
 ```{r}
 library(janitor)
@@ -36,11 +37,15 @@ crm <- crimen %>%
 crm
 ```
 
+Use una gráfica para verificar si hay coordenadas afuera del perímetro de la isla
+
 ```{r}
 crm %>%
   ggplot() +
   geom_point(aes(longitud, latitud))
 ```
+
+Con el comando `filter()` remueva las coordenadas que son inválidas
 
 ```{r}
 crm <- crimen %>%
@@ -49,6 +54,7 @@ crm <- crimen %>%
   rename(longitud = point_y, latitud = point_x)
 ```
 
+Chequee otra vez que las coordenads están dentro de los limites
 
 ```{r, fig.width = 10, fig.height = 3}
 crm %>%
@@ -56,42 +62,75 @@ crm %>%
   geom_point(aes(longitud, latitud))
 ```
 
+La función `map_data()`, del paquete `ggplot2`, contiene el mapa mundial.  El mapa de Puerto Rico se puede acceder usando el argumento `region`.
+
 ```{r}
 pr <- map_data("world", region = "Puerto Rico")
-
 ```
 
-```{r, fig.width = 10, fig.height = 3}
+Use `geom_map()` para agregar la figura del territorio
+
+```{r, fig.width = 12, fig.height = 3}
 ggplot() +
-  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
-  geom_point(aes(longitud, latitud), color = "blue", size = 0.2, data = crm) +
-  theme_void()
-  
+  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) 
 ```
 
-```{r, fig.width = 10, fig.height = 3}
+Agrege la capa con los datos de crimen 
+
+```{r, fig.width = 12, fig.height = 3}
 ggplot() +
   geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
-  geom_point(aes(longitud, latitud, color = area_policiaca), size = 0.2, data = crm) +
+  geom_point(aes(longitud, latitud), data = crm)
+```
+
+`theme_void()` remueve la información alrededor del mapa
+
+```{r, fig.width = 12, fig.height = 3}
+ggplot() +
+  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud), color = "blue", size = 0.1, data = crm) +
+  theme_void() 
+```
+
+Los colores de los puntos se pueden 
+
+```{r, fig.width = 12, fig.height = 3.5}
+ggplot() +
+  geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud, color = area_policiaca), size = 0.5, data = crm) +
   theme_void() +
   theme(legend.position = "bottom")
-  
 ```
 
-```{r, fig.width = 10, fig.height = 4}
+`facet_wrap()` permite crear una "mini" gráfica por cada segmento de los datos.  En este caso, `area_policiaca`
+
+```{r, fig.width = 12, fig.height = 3.5}
 ggplot() +
   geom_map(aes(long, lat, map_id = region), fill = "gray",  map = pr, data = pr) +
   geom_point(aes(longitud, latitud, color = area_policiaca), size = 0.2, data = crm) +
   theme_void() +
-  theme(legend.position = "bottom") +
+  facet_wrap(~delitos_code)
+```
+
+Ajustes se pueden hacer a los colores para obtener una mejor vista de la información.
+
+```{r, fig.width = 12, fig.height = 3.5}
+ggplot() +
+  geom_map(aes(long, lat, map_id = region), fill = "black",  map = pr, data = pr) +
+  geom_point(aes(longitud, latitud), alpha = 0.2, size = 0.1, color = "#ffff00", data = crm) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = "#333333")) +
   facet_wrap(~delitos_code)
 ```
 
 ## leaflet
 
+Leaflet (https://leafletjs.com/) es una librería de JavaScript que se utiliza para hacer mapas interactivos.  Es la más usada hoy en día.  El paquete de R llamado `leaflet` permite la integración con esta librería.  
+
+En lugar de usar `+`, `leaflet` utiliza el pipe (`%>%`) para crear las visualizaciones.  Se necesita `addTiles()` para agregar el mapa, y después algún tipo de puntos geográficos.
+
 ```{r}
 library(leaflet)
-
 
 crm %>%
   filter(month(fecha) == 8) %>%
@@ -99,6 +138,8 @@ crm %>%
   addTiles() %>%
   addMarkers(~longitud, ~latitud)
 ```
+
+Ya que son interactivos, se pueden agregar nombres que salen cuando se hace un click al punto
 
 ```{r}
 crm %>%
@@ -116,6 +157,8 @@ crm %>%
   addTiles() %>%
   addMarkers(~longitud, ~latitud, popup = ~paste0("Delito: ",delitos_code))
 ```
+
+`markerClusterOptions()` agrupa los puntos automaticamente para que la interactividad sea más fácil
 
 ```{r}
 crm %>%
