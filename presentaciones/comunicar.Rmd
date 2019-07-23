@@ -1,7 +1,7 @@
 ---
 output:
   xaringan::moon_reader:
-    css: "include/aprender.css"
+    css: "_include/aprender.css"
     seal: false
     nature:
       countIncrementalSlides: yes
@@ -20,7 +20,7 @@ class: regular
 # El último paso...
 
 ```{r, out.height = 450, out.width = 1000, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/cubre-rmarkdown.png")
+knitr::include_graphics("_include/cubre-rmarkdown.png")
 ```
 
 ---
@@ -33,7 +33,7 @@ class: regular
 
 .left-column[
 ```{r, out.height = 300, out.width = 280, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/hex/rmarkdown.png")
+knitr::include_graphics("_include/hex/rmarkdown.png")
 ```
 ]
 
@@ -61,7 +61,7 @@ class: regular
 
 .right-column[
 ```{r, out.height = 400, out.width = 500, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/04-notebook-preview.png")
+knitr::include_graphics("_include/04-notebook-preview.png")
 ```
 ]
 
@@ -71,7 +71,7 @@ class: regular
 
 .left-column[
 ```{r, out.height = 400, out.width = 300, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/rmarkdown-packages.png")
+knitr::include_graphics("_include/rmarkdown-packages.png")
 ```
 ]
 
@@ -91,7 +91,7 @@ knitr::include_graphics("include/rmarkdown-packages.png")
 class: exercise, middle, center
 ## Ejercicio
 # Documentos de `rmarkdown` 
-### **Archivos:** 08-presentacion.Rmd, 09-flexdashboard.Rmd
+### **Archivos:** presentacion.Rmd, flexdashboard.Rmd
 
 ---
 class: title-slide, middle, center
@@ -103,7 +103,7 @@ class: regular
 
 .left-column[
 ```{r, out.height = 300, out.width = 280, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/hex/shiny.png")
+knitr::include_graphics("_include/hex/shiny.png")
 ```
 ]
 
@@ -118,4 +118,4 @@ knitr::include_graphics("include/hex/shiny.png")
 class: exercise, middle, center
 ## Ejercicio
 # Aplicaciones `shiny` 
-### **Archivo:** 10-aplicacion.R
+### **Archivo:** aplicacion.R

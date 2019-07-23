@@ -1,7 +1,7 @@
 ---
 output:
   xaringan::moon_reader:
-    css: "include/aprender.css"
+    css: "_include/aprender.css"
     seal: false
     nature:
       countIncrementalSlides: yes
@@ -53,7 +53,7 @@ class:regular
 ggplot()
 ```
 ```{r, out.height = 380, out.width = 600, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/03-capa1.png")
+knitr::include_graphics("_include/03-capa1.png")
 ```
 
 ---
@@ -65,7 +65,7 @@ ggplot() +
   geom_col(aes(cyl, mpg), data = mtcars)
 ```
 ```{r, out.height = 380, out.width = 600, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/03-capa2.png")
+knitr::include_graphics("_include/03-capa2.png")
 ```
 ---
 class:regular
@@ -76,11 +76,11 @@ ggplot() + geom_col(aes(cyl, mpg), data = mtcars) +
   labs(title = "Millas por Galon")
 ```
 ```{r, out.height = 380, out.width = 600, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/03-capa3.png")
+knitr::include_graphics("_include/03-capa3.png")
 ```
 
 ---
 class: exercise, middle, center
 ## Ejercicio
 # Crear gráficas
-### **Archivos:** 02-graficas.Rmd y 03-graficas.Rmd
+### **Archivos:** graficas-1.Rmd y graficas-2.Rmd

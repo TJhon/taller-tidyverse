@@ -5,7 +5,7 @@ author: "Edgar Ruiz"
 date: "Julio 2019"
 output:
   xaringan::moon_reader:
-    css: "include/aprender.css"
+    css: "_include/aprender.css"
     nature:
       countIncrementalSlides: yes
       highlightLines: yes
@@ -18,20 +18,23 @@ resource_files:
 unlink(list.files(pattern = ".html"))
 ```
 
-```{r, child = "01-intro.Rmd"}
+```{r, child = "intro.Rmd"}
 ```
 
-```{r, child = "02-R-RStudio.Rmd"}
+```{r, child = "R-RStudio.Rmd"}
 ```
 
-```{r, child = "03-graficas.Rmd"}
+```{r, child = "graficas.Rmd"}
 ```
 
-```{r, child = "04-analisis.Rmd"}
+```{r, child = "analisis.Rmd"}
 ```
 
-```{r, child = "05-modelos.Rmd"}
+```{r, child = "mapas.Rmd"}
 ```
 
-```{r, child = "06-comunicar.Rmd"}
+```{r, child = "modelos.Rmd"}
+```
+
+```{r, child = "comunicar.Rmd"}
 ```

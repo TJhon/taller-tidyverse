@@ -1,7 +1,7 @@
 ---
 output:
   xaringan::moon_reader:
-    css: "include/aprender.css"
+    css: "_include/aprender.css"
     seal: false
     nature:
       countIncrementalSlides: yes
@@ -27,7 +27,7 @@ library(skimr)
 skim(millas) 
 ```
 ```{r, out.height = 380, out.width = 750, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/skimr.png")
+knitr::include_graphics("_include/skimr.png")
 ```
 
 ---
@@ -49,7 +49,7 @@ millas %>%
 
 .right-column[
 ```{r, out.height = 350, out.width = 600, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/corrr.png")
+knitr::include_graphics("_include/corrr.png")
 ```
 ]
 
@@ -70,7 +70,7 @@ class: regular
 
 .left-column[
 ```{r, out.height = 300, out.width = 280, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/06-tidymodels_hex.png")
+knitr::include_graphics("_include/06-tidymodels_hex.png")
 ```
 ]
 .right-column[
@@ -83,7 +83,7 @@ class: regular
 # Lo que cubre el `tidymodels` 
 
 ```{r, out.height = 450, out.width = 1000, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/cubre-tidymodels.png")
+knitr::include_graphics("_include/cubre-tidymodels.png")
 ```
 
 ---
@@ -93,7 +93,7 @@ class: regular
 
 .left-column[
 ```{r, out.height = 400, out.width = 250, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/tidymodels-first.png")
+knitr::include_graphics("_include/tidymodels-first.png")
 ```
 ]
 .right-column[
@@ -113,7 +113,7 @@ class: regular
 
 .left-column[
 ```{r, out.height = 400, out.width = 220, fig.align = "center", echo = FALSE}
-knitr::include_graphics("include/tidymodels-second.png")
+knitr::include_graphics("_include/tidymodels-second.png")
 ```
 ]
 .right-column[
@@ -212,7 +212,7 @@ class: exercise, middle, center
 
 ## Ejercicio
 # Modelos con `tidymodels`
-### **Archivo:** 06-tidymodels.Rmd
+### **Archivo:** tidymodels.Rmd
 
 ---
 class: dark, middle, center
@@ -283,4 +283,4 @@ partir %>%
 class: exercise, middle, center
 ## Ejercicio
 # Modelos por segmentos
-### **Archivo:** 07-modelos.Rmd
+### **Archivo:** modelos.Rmd

@@ -4,7 +4,7 @@
     <title>Taller Tidyverse</title>
     <meta charset="utf-8" />
     <meta name="author" content="Edgar Ruiz" />
-    <link rel="stylesheet" href="include/aprender.css" type="text/css" />
+    <link rel="stylesheet" href="_include/aprender.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -169,7 +169,7 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Usar R
-### **Archivo:** 01-librerias.Rmd
+### **Archivo:** librerias.Rmd
 
 
 
@@ -212,7 +212,7 @@ class:regular
 ```r
 ggplot()
 ```
-&lt;img src="include/03-capa1.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/03-capa1.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
 
 ---
 class:regular
@@ -223,7 +223,7 @@ class:regular
 ggplot() + 
   geom_col(aes(cyl, mpg), data = mtcars)
 ```
-&lt;img src="include/03-capa2.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/03-capa2.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
 ---
 class:regular
 # Capa 3
@@ -233,13 +233,13 @@ class:regular
 ggplot() + geom_col(aes(cyl, mpg), data = mtcars) + 
   labs(title = "Millas por Galon")
 ```
-&lt;img src="include/03-capa3.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/03-capa3.png" width="600" height="380" style="display: block; margin: auto;" /&gt;
 
 ---
 class: exercise, middle, center
 ## Ejercicio
 # Crear gráficas
-### **Archivos:** 02-graficas.Rmd y 03-graficas.Rmd
+### **Archivos:** graficas-1.Rmd y graficas-2.Rmd
 
 
 ---
@@ -252,19 +252,19 @@ class: title-slide, middle, center
 class: regular
 # Pasos del análisis 
 
-&lt;img src="include/05-pasos-1.png" width="1000" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/05-pasos-1.png" width="1000" height="400" style="display: block; margin: auto;" /&gt;
 
 ---
 class: regular
 # Todos corren en **R**
 
-&lt;img src="include/05-pasos-2.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/05-pasos-2.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
 
 ---
 class: regular
 #  **Paquetes de R** facilitan el análisis
 
-&lt;img src="include/05-pasos-3.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/05-pasos-3.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
 
 ---
 class: title-slide, middle, center
@@ -275,7 +275,7 @@ class: regular
 # ¿Que es el `tidyverse`?
 
 .left-column[
-&lt;img src="include/hex/tidyverse.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/hex/tidyverse.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
 ]
 
 .right-column[
@@ -293,13 +293,13 @@ class: regular
 # La meta del `tidyverse`
 ### Resolver problemas complicados mediante la combinación de diferentes piezas que son consistentes unas con otras.
 
-&lt;img src="include/05-meta-tidyverse.png" width="400" height="350" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/05-meta-tidyverse.png" width="400" height="350" style="display: block; margin: auto;" /&gt;
 
 ---
 class: regular
 # Lo que cubre el `tidyverse` 
 
-&lt;img src="include/cubre-tidyverse.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/cubre-tidyverse.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
 
 ---
 class: dark, middle, center
@@ -311,7 +311,7 @@ class: regular
 # Leér
 
 .left-column[
-&lt;img src="include/05-paquetes-leer.png" width="330" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/05-paquetes-leer.png" width="330" height="400" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 * `readr` - Archivos CSV, texto
@@ -331,7 +331,7 @@ class: regular
 # Ordenar y Transformar
 
 .left-column[
-&lt;img src="include/05-paquetes-ordenar.png" width="300" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/05-paquetes-ordenar.png" width="300" height="400" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 * `tidyr` - Ordernar datos
@@ -350,7 +350,7 @@ class: regular
 # Visualizar
 
 .left-column[
-&lt;img src="include/hex/ggplot2.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/hex/ggplot2.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 * `ggplot2` - Visualizar datos
@@ -362,7 +362,7 @@ class: regular
 # Otros
 
 .left-column[
-&lt;img src="include/hex/purrr.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/hex/purrr.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 * `purrr` - Programación funcional (para ciclos ó repeticiones)
@@ -503,7 +503,14 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Analizar Datos con el `tidyverse`
-### **Archivo:** 04-tidyverse.Rmd
+### **Archivo:** tidyverse.Rmd
+
+
+---
+class: title-slide, middle, center
+# Mapas con R
+
+
 
 
 ---
@@ -522,7 +529,7 @@ class: dark, middle, center
 library(skimr)
 skim(millas) 
 ```
-&lt;img src="include/skimr.png" width="750" height="380" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/skimr.png" width="750" height="380" style="display: block; margin: auto;" /&gt;
 
 ---
 # Correlaciones con `corrr`
@@ -542,7 +549,7 @@ millas %&gt;%
 ]
 
 .right-column[
-&lt;img src="include/corrr.png" width="600" height="350" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/corrr.png" width="600" height="350" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -561,7 +568,7 @@ class: regular
 #`tidymodels`
 
 .left-column[
-&lt;img src="include/06-tidymodels_hex.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/06-tidymodels_hex.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 ### Conjunto de paquetes para modelamiento y análisis estadístico  
@@ -572,7 +579,7 @@ class: regular
 class: regular
 # Lo que cubre el `tidymodels` 
 
-&lt;img src="include/cubre-tidymodels.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/cubre-tidymodels.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
 
 ---
 class: regular
@@ -580,7 +587,7 @@ class: regular
 # Paquetes del `tidymodels`
 
 .left-column[
-&lt;img src="include/tidymodels-first.png" width="250" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/tidymodels-first.png" width="250" height="400" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 * `rsample` - Para re-tomar **muestras** de datos 
@@ -598,7 +605,7 @@ class: regular
 # Paquetes del `tidymodels`
 
 .left-column[
-&lt;img src="include/tidymodels-second.png" width="220" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/tidymodels-second.png" width="220" height="400" style="display: block; margin: auto;" /&gt;
 ]
 .right-column[
 * `infer` - Inferencias estadísticas
@@ -696,7 +703,7 @@ class: exercise, middle, center
 
 ## Ejercicio
 # Modelos con `tidymodels`
-### **Archivo:** 06-tidymodels.Rmd
+### **Archivo:** tidymodels.Rmd
 
 ---
 class: dark, middle, center
@@ -767,7 +774,7 @@ partir %&gt;%
 class: exercise, middle, center
 ## Ejercicio
 # Modelos por segmentos
-### **Archivo:** 07-modelos.Rmd
+### **Archivo:** modelos.Rmd
 
 
 ---
@@ -778,7 +785,7 @@ class: title-slide, middle, center
 class: regular
 # El último paso...
 
-&lt;img src="include/cubre-rmarkdown.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/cubre-rmarkdown.png" width="1000" height="450" style="display: block; margin: auto;" /&gt;
 
 ---
 class: title-slide, middle, center
@@ -789,7 +796,7 @@ class: regular
 ## R Markdown
 
 .left-column[
-&lt;img src="include/hex/rmarkdown.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/hex/rmarkdown.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
 ]
 
 .right-column[
@@ -815,7 +822,7 @@ class: regular
 ]
 
 .right-column[
-&lt;img src="include/04-notebook-preview.png" width="500" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/04-notebook-preview.png" width="500" height="400" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -823,7 +830,7 @@ class: regular
 ## Tipos de resultados
 
 .left-column[
-&lt;img src="include/rmarkdown-packages.png" width="300" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/rmarkdown-packages.png" width="300" height="400" style="display: block; margin: auto;" /&gt;
 ]
 
 .right-column[
@@ -842,7 +849,7 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Documentos de `rmarkdown` 
-### **Archivos:** 08-presentacion.Rmd, 09-flexdashboard.Rmd
+### **Archivos:** presentacion.Rmd, flexdashboard.Rmd
 
 ---
 class: title-slide, middle, center
@@ -853,7 +860,7 @@ class: regular
 ## ¿Que es `shiny`?
 
 .left-column[
-&lt;img src="include/hex/shiny.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="_include/hex/shiny.png" width="280" height="300" style="display: block; margin: auto;" /&gt;
 ]
 
 .right-column[
@@ -867,7 +874,7 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Aplicaciones `shiny` 
-### **Archivo:** 10-aplicacion.R
+### **Archivo:** aplicacion.R
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

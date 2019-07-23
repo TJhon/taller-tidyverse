@@ -2,7 +2,7 @@
 output:
   xaringan::moon_reader:
     seal: false
-    css: "include/aprender.css"
+    css: "_include/aprender.css"
     nature:
       countIncrementalSlides: yes
       highlightLines: yes
@@ -90,4 +90,4 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Usar R
-### **Archivo:** 01-librerias.Rmd
+### **Archivo:** librerias.Rmd
