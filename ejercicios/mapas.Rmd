@@ -127,7 +127,7 @@ ggplot() +
 
 Leaflet (https://leafletjs.com/) es una librería de JavaScript que se utiliza para hacer mapas interactivos.  Es la más usada hoy en día.  El paquete de R llamado `leaflet` permite la integración con esta librería.  
 
-En lugar de usar `+`, `leaflet` utiliza el pipe (`%>%`) para crear las visualizaciones.  Se necesita `addTiles()` para agregar el mapa, y después algún tipo de puntos geográficos.
+En lugar de usar `+`, `leaflet` utiliza el pipe (`%>%`) para crear las visualizaciones.  Se necesita `addTiles()` para agregar el mapa, y después algún tipo de puntos geográficos. Usando la función `filter()` vamos a visualizar los crimenes solamente en el mes de agosto.
 
 ```{r}
 library(leaflet)
