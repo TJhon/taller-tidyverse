@@ -176,6 +176,7 @@ crm %>%
   addMarkers(~longitud, ~latitud,  popup = ~paste0("Delito: ",delitos_code), clusterOptions = markerClusterOptions())
 ```
 
+Para agregar íconos personalizados, utilize `addAwesomeMarkers()`.  La función `awesomeIcons()` le permite traer íconos de diferentes lugares de internet, como Font Awesome: https://fontawesome.com/icons?from=io . Para utilizar Font Awesome, pase el valor "fa" a el argumento `library`.
 
 ```{r}
 crm %>%
