@@ -25,7 +25,8 @@ crimen <- read_csv("datos/crimen_pr.csv")
 crimen
 ```
 
-El paquete `janitor` se puede usar para limpiar los nombres de las columnas
+El paquete `janitor` se puede usar para limpiar los nombres de las columnas. La función `clean_names()` añade un "underscore" en nombre compuestas de columnas
+remueve la letras las mayusculas. Posterior al cambio, también cambiamos el nombre de las columnas `point_y` y `point_x` a `longitud` y `latitud` con función `rename()`.
 
 ```{r}
 library(janitor)
