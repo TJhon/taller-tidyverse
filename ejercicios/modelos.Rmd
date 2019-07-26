@@ -34,10 +34,33 @@ modelo_traccion <- por_traccion %>%
 modelo_traccion
 ```
 
-3. Use `map()` + `unnest()` para ver los resultados en una tabla
+3. Use `map()` + `unnest()` para ver los resultados en una tabla.  La función `glance()` del paquete `broom` se pueded utilizar para ver el desempeño por cada modelo. La función `map()` aplica `glance()` a cada modelo individualmente.
+
 ```{r}
 modelo_traccion %>%
   mutate(resultados = map(modelo, glance)) %>%
   unnest(resultados)
+```
+
+Para ver las estimaciones por cada modelo se puede utilizar la función `tidy()`, también en combinación con la función `map()`.
+
+```{r}
+modelo_traccion %>%
+  mutate(resultados = map(modelo, tidy)) %>%
+  unnest(resultados) 
+```
+
+Los resultados se pueden visualizar usando `ggplot2`.  Con `geom_point()` podemos ver el punto de estimación de cada modelo.
+
+```{r, fig.width = 4, fig.height = 4}
+modelo_traccion %>%
+  mutate(resultados = map(modelo, tidy)) %>%
+  unnest(resultados) %>%
+  filter(term == "(Intercept)") %>%
+  ggplot() +
+  geom_point(aes(estimate, traccion)) +
+  geom_segment(aes(x = 0, xend = estimate, y = traccion, yend = traccion), size = 0.2) +
+  labs(x = "Intercept", y = "") +
+  theme_light()
 ```
 
