@@ -1,0 +1,134 @@
+---
+title: Operaciones de texto
+output: html_notebook
+---
+
+```{r, setup, include = FALSE}
+library(tidyverse)
+library(datos)
+```
+
+Empezemos con dos variables the texto.  Una is una oración, y la otra es un vector con cuatro valores de texto.
+
+```{r}
+un_texto <- "Este es el mejor taller del mundo!"
+multiple_texto <- c("mil", "dos mil", "tres mil", "un billón")
+```
+
+`str_count()` regresa cuantas letras tiene la variable.  Si es un vector, regresa un resultado por cada valor dentro del vector.
+
+```{r}
+str_count(un_texto)
+str_count(multiple_texto)
+```
+
+Para saber si cierto texto está dentro otro texto, utilize `str_detect()`
+
+```{r}
+str_detect(multiple_texto, "mil")
+```
+
+`str_pad()` agrega espacios, u otra letra, para hacer cada valor tan grande como es especificado
+
+```{r}
+str_pad(multiple_texto, 10, side = "right")
+str_pad(multiple_texto, 10, side = "right", pad = "X")
+```
+
+Para saber la posición exacta de un texto dentro de otro, utilize `str_locate()`.
+
+```{r}
+str_locate(multiple_texto, "mil")
+```
+
+`str_sub()` permite extraer el valor en una posición específica dentro del texto
+
+```{r}
+str_sub(multiple_texto, 1, 3)
+```
+
+Con `str_replace()` se puede remplazar una letra, o letras, por otra, u otras.  Está función solo remplaza el primer valor encontrado.
+
+```{r}
+str_replace(un_texto, "l", "X")
+```
+
+`str_replace_all()` remplaza todos los valores que cazan el valor requirido
+
+```{r}
+str_replace_all(un_texto, "l", "X")
+```
+
+Aquí hay un ejemplo de `str_replace_all()` en una variable vector con múltiples valores
+
+```{r}
+str_replace_all(multiple_texto, "mil", "MIL")
+```
+
+`str_to_upper()` hace todas la letras mayúsculas
+
+```{r}
+str_to_upper(multiple_texto)
+```
+
+`str_to_title()` cambia la primera letra de cada palabra a mayúscula
+
+```{r}
+str_to_title(multiple_texto)
+```
+
+`str_to_sentence()` cambia solo la primera letra de la variable de texto a mayúscula
+
+```{r}
+str_to_sentence(multiple_texto)
+```
+
+Con `str_split()` se puede dividir la variable en dos o más 
+
+```{r}
+str_split(multiple_texto, "mil")
+```
+
+Las funciones también funcionan con tablas
+
+```{r}
+paises %>%
+  mutate(pais = str_to_lower(pais))
+```
+
+```{r}
+paises %>%
+  filter(str_detect(pais, "ana")) %>%
+  count(pais)
+```
+
+## Ejercicios
+
+```{r, eval = FALSE}
+View(oraciones)
+```
+
+¿Cuantas letras tiene cada oración?
+
+```{r}
+
+```
+
+¿Cuantas letras tiene la oración mas larga?
+
+```{r}
+
+```
+
+¿Cual es la oración más larga?
+
+```{r}
+
+```
+
+Separe cada palabra dentro cada oración en su valor dentro de un vector
+
+```{r}
+
+```
+
