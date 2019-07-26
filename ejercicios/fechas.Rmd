@@ -1,0 +1,142 @@
+---
+title: Fechas
+output: html_notebook
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(lubridate)
+```
+
+
+https://github.com/edgararuiz/guias-rapidas/blob/master/fechas.pdf
+
+```{r}
+library(tidyverse)
+library(lubridate)
+```
+
+## El paquete `lubridate`
+
+La función `today()` regresa la fecha de hoy, similar a `Sys.date()`
+
+```{r}
+today()
+```
+
+Usames `tibble()`, del paquete `tibble`, para crear una tabla manualmente
+
+```{r}
+fechas <- tribble(
+  ~ codigo, ~ fecha,
+    "001",    "01/01/2019 00:00:00",
+    "002",    "31/03/2019 01:05:00",
+    "003",    "14/06/2019 20:00:00",
+)
+fechas
+```
+
+Hay varias opciones para convertir texto a fechas, el más usado es `mdy_hms()`, pero en este caso el formato utilizado no funciona bien.
+
+```{r}
+fechas %>%
+  mutate(fecha = mdy_hms(fecha))
+```
+
+Ya que el día es primero, y no el mes, usamos `dmy_hms()`
+
+```{r}
+nueva_fechas <- fechas %>%
+  mutate(fecha = dmy_hms(fecha))
+
+nueva_fechas
+```
+
+`lubridate` tiene varias funciones para extraer partes de la fecha, por ejemplo: año, mes, día, hora, minuto, y quatrimestre.
+
+```{r}
+nueva_fechas %>%
+  mutate(a = year(fecha),
+         m = month(fecha),
+         d = day(fecha),
+         h = hour(fecha),
+         mn = minute(fecha),
+         q = quarter(fecha)
+         )
+```
+
+Las funciones `round_date()`, `ceiling_date()` y `floor_date()` permiten redondear la fecha al número más cercano de la unidad especificada
+
+```{r}
+nueva_fechas %>%
+  mutate(
+    redondear = round_date(fecha, unit = "month"),
+    techo = ceiling_date(fecha, unit = "month"),
+    suelo = floor_date(fecha, unit = "month")
+  )
+```
+
+## Intervalos y duraciones
+
+La función `interval()` crea un objeto R de intervalo de tiempo. En este caso, el intervalo entro la fecha en la tabla, y el día de hoy
+
+```{r}
+nueva_fechas %>%
+  mutate(intervalo = interval(fecha, today()))
+```
+
+`int_length()` regresa el número de segundos dentro del intervalo
+
+```{r}
+nueva_fechas %>%
+  mutate(
+    intervalo = interval(fecha, today()),
+    segundos = int_length(intervalo)
+    )
+```
+
+El operador `%--%` simplifica el cálculo del intervalo
+
+```{r}
+nueva_fechas %>%
+  mutate(intervalo = fecha %--% today())
+```
+
+Para saber el número del días, divida el intervalo por la función que corresponde a días, `days()`
+
+```{r}
+nueva_fechas %>%
+  mutate(dias = fecha %--% today() / days())
+```
+
+Los resultados se pueden visualizar usando `ggplot2`
+
+```{r}
+nueva_fechas %>%
+  mutate(dias = fecha %--% today() / days()) %>%
+  ggplot() +
+  geom_col(aes(codigo, dias)) +
+  coord_flip()
+```
+
+`as.duration()` crea un objecto en R que contiene la duración del intervalo de tiempo.  
+```{r}
+nueva_fechas %>%
+  mutate(desde_hoy = as.duration(fecha %--% today()))
+```
+
+El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos.  En este caso, semanas. `dweeks()` crea un objeto de duración de la largura especificada
+
+```{r}
+nueva_fechas %>%
+  mutate(desde_hoy = as.duration(fecha %--% today())) %>%
+  filter(desde_hoy > dweeks(10))
+```
+
+Otra opción es `ddays()`. 
+
+```{r}
+nueva_fechas %>%
+  mutate(desde_hoy = as.duration(fecha %--% today())) %>%
+  filter(desde_hoy < ddays(90))
+```
