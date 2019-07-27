@@ -5,7 +5,7 @@ check_for <- c(
   "mime", "tidyverse", "tidymodels", "fs", "skimr",
   "corrr", "babynames", "fueleconomy", "nycflights13",
   "nasaweather", "Lahman", "gapminder", "xaringan",
-  "flexdashboard", "leaflet", "janitor"
+  "flexdashboard", "leaflet", "janitor", "tidytext"
 )
 installed_packages <- as.data.frame(installed.packages())
 check_installed <- installed_packages[installed_packages$Package %in% check_for, ]

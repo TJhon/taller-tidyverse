@@ -1,0 +1,90 @@
+---
+title: Análisis de texto
+output: html_notebook
+---
+
+```{r, setup, include = FALSE}
+library(tidyverse)
+library(tidytext)
+library(datos)
+```
+
+
+```{r}
+ora <- tibble(oracion = oraciones)
+ora
+```
+
+```{r}
+palabras <- ora %>%
+  unnest_tokens(palabra, oracion)
+
+palabras
+```
+
+```{r}
+palabras %>%
+  count(palabra, sort = TRUE)
+```
+
+
+https://github.com/apache/spark/blob/5264164a67df498b73facae207eda12ee133be7d/mllib/src/main/resources/org/apache/spark/ml/feature/stopwords/spanish.txt
+```{r}
+parada <- read_lines("datos/palabras.txt")
+parada
+```
+
+```{r}
+sin_palabras <- palabras %>%
+  filter(!(palabra %in% parada))
+
+sin_palabras
+```
+```{r}
+sin_palabras %>%
+  count(palabra, sort = TRUE)
+```
+
+```{r}
+ora %>%
+  filter(str_detect(oracion , "verde"))
+```
+
+## Ejercicio
+
+https://es.wikipedia.org/wiki/Esc%C3%A1ndalo_en_Bohemia
+
+```{r}
+bohemia <- read_lines("datos/bohemia.txt")
+head(bohemia)
+```
+
+¿Cuantas palabras hay?
+
+```{r}
+
+```
+
+¿Cuál es la palabra más usada?
+
+```{r}
+
+```
+
+¿Cuantas veces se menciona "Sherlock"?
+
+```{r}
+
+```
+
+¿Cuantas veces se menciona "Watson"?
+
+```{r}
+
+```
+
+
+
+
+
+
