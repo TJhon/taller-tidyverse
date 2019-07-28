@@ -1,0 +1,93 @@
+---
+output:
+  xaringan::moon_reader:
+    css: "_include/aprender.css"
+    seal: false
+    nature:
+      countIncrementalSlides: yes
+      highlightLines: yes
+      highlightStyle: github
+      ratio: 16:9
+resource_files:
+  - include
+---
+---
+class: title-slide, middle, center
+# Análisis de Texto
+
+---
+class: title-slide, middle, center
+# Introduciendo `tidytext`
+
+---
+```{r, include = FALSE}
+library(tidyverse)
+library(tidytext)
+```
+
+class: regular
+## `tidytext`
+
+.left-column[
+```{r, out.height = 200, out.width = 180, fig.align = "center", echo = FALSE}
+knitr::include_graphics("_include/hex/tidytext.png")
+```
+]
+
+.right-column[
+* Facilita el análisis de texto
+
+* Se integra con el resto de `tidyverse`
+
+* Prepara los datos para correr modelos de texto
+
+]
+
+---
+class: regular
+
+## De lineas...a palabras
+
+```{r, eval = FALSE}
+oracion <- "Un ejemplo de oración para este ejercicio"
+as_tibble(oracion) %>% 
+  unnest_tokens(palabra, value)
+```
+
+```r
+## # A tibble: 9 x 1
+##   palabra  
+##   <chr>    
+## 1 un       
+## 2 ejemplo  
+## 3 de       
+## 4 oración  
+## 5 para     
+## 6 este     
+## 7 ejercicio
+```
+
+---
+class: regular
+
+## Palabras de parada
+
+## **Un** ejemplo **de** oración **para** **este** ejercicio
+
+```{r, eval = FALSE}
+as_tibble(oracion) %>% 
+  unnest_tokens(palabra, value) %>%
+  filter(!(palabra %in% parada))
+```
+
+```r
+## # A tibble: 3 x 1
+##   palabra  
+##   <chr>    
+## 1 ejemplo  
+## 2 oración  
+## 3 ejercicio
+```
+
+
+

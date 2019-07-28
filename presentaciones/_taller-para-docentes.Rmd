@@ -33,6 +33,9 @@ unlink(list.files(pattern = ".html"))
 ```{r, child = "mapas.Rmd"}
 ```
 
+```{r, child = "analisis-de-texto.Rmd"}
+```
+
 ```{r, child = "modelos.Rmd"}
 ```
 
