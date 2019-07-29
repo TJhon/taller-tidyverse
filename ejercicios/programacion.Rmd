@@ -187,4 +187,3 @@ estudiantes <- datos_limpios %>%
 
 estudiantes[1]
 ```
-

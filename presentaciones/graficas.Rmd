@@ -11,9 +11,6 @@ output:
 resource_files:
   - include
 ---
-```{r, include = FALSE}
-library(ggplot2)
-```
 ---
 class: title-slide, middle, center
 # Visualizar datos

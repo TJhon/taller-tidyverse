@@ -16,11 +16,6 @@ class: title-slide, middle, center
 # Análisis de Datos
 
 ---
-```{r, include = FALSE}
-library(tidyverse)
-library(datos)
-```
-
 class: regular
 # Pasos del análisis 
 

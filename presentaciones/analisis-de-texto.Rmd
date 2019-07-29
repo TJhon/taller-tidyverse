@@ -20,11 +20,6 @@ class: title-slide, middle, center
 # Introduciendo `tidytext`
 
 ---
-```{r, include = FALSE}
-library(tidyverse)
-library(tidytext)
-```
-
 class: regular
 ## `tidytext`
 

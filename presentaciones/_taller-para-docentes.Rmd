@@ -12,7 +12,7 @@ output:
       highlightStyle: github
       ratio: 16:9
 resource_files:
-  - include
+  - _include
 ---
 ```{r, include = FALSE}
 unlink(list.files(pattern = ".html"))
@@ -34,6 +34,9 @@ unlink(list.files(pattern = ".html"))
 ```
 
 ```{r, child = "analisis-de-texto.Rmd"}
+```
+
+```{r, child = "programacion.Rmd"}
 ```
 
 ```{r, child = "modelos.Rmd"}

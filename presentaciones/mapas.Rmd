@@ -23,10 +23,6 @@ class: dark, middle, center
 class: regular
 ### Use `map_data()` y `geom_map()` para crear mapas 
 
-```{r setup, include = FALSE}
-library(tidyverse)
-library(leaflet)
-```
 ```{r, eval = FALSE}
 pr <- map_data("world", region = "Puerto Rico")
 ggplot() + geom_map(aes(long, lat, map_id = region), 
