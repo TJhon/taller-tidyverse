@@ -48,7 +48,7 @@ Es fácil correr modelos con los resultados de este tipo de funciones
 
 ```{r}
 s_diamantes <- diamantes %>%
-  mutate_at(vars(x, y, z), standarizar)
+  mutate_at(vars(x, y, z), estandarizar)
 
 summary(lm(precio ~ x + y + z, data = s_diamantes))
 ```
