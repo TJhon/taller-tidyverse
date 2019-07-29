@@ -18,29 +18,29 @@ resource_files:
 unlink(list.files(pattern = ".html"))
 ```
 
-```{r, child = "intro.Rmd"}
+```{r, child = "01-intro.Rmd"}
 ```
 
-```{r, child = "R-RStudio.Rmd"}
+```{r, child = "02-R-RStudio.Rmd"}
 ```
 
-```{r, child = "graficas.Rmd"}
+```{r, child = "03-graficas.Rmd"}
 ```
 
-```{r, child = "analisis.Rmd"}
+```{r, child = "04-analisis.Rmd"}
 ```
 
-```{r, child = "mapas.Rmd"}
+```{r, child = "05-mapas.Rmd"}
 ```
 
-```{r, child = "analisis-de-texto.Rmd"}
+```{r, child = "06-analisis-de-texto.Rmd"}
 ```
 
-```{r, child = "programacion.Rmd"}
+```{r, child = "07-programacion.Rmd"}
 ```
 
-```{r, child = "modelos.Rmd"}
+```{r, child = "08-modelos.Rmd"}
 ```
 
-```{r, child = "comunicar.Rmd"}
+```{r, child = "09-comunicar.Rmd"}
 ```
