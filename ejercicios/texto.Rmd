@@ -125,10 +125,3 @@ View(oraciones)
 ```{r}
 
 ```
-
-Separe cada palabra dentro cada oración en su valor dentro de un vector
-
-```{r}
-
-```
-
