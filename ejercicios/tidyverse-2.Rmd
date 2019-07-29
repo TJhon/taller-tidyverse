@@ -67,6 +67,14 @@ diamantes %>%
   rename_all(~paste0("var_", .))
 ```
 
+También se pueden combinar las funciones, en este caso, se estadarizan y re-nombran las variables
+
+```{r}
+diamantes %>%
+  mutate_at(vars(x, y, z), estandarizar) %>%
+  rename_at(vars(x, y, z), ~paste0("est_", .))
+```
+
 ## Ejercicios usando `paises`
 
 ```{r}
