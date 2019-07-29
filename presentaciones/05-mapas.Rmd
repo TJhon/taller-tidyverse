@@ -84,3 +84,9 @@ leaflet() %>% addTiles() %>% addMarkers(
 ```{r, out.height = 350, out.width = 850, fig.align = "center", echo = FALSE}
 knitr::include_graphics("_include/leaflet3.png")
 ```
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Mapas con R
+### **Archivo:** 08-mapas.Rmd

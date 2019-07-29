@@ -83,6 +83,8 @@ as_tibble(oracion) %>%
 ## 2 oración  
 ## 3 ejercicio
 ```
-
-
-
+---
+class: exercise, middle, center
+## Ejercicio
+# Analysis de texto con R
+### **Archivo:** 09-analisis-texto.Rmd

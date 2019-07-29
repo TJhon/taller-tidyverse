@@ -90,4 +90,4 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Usar R
-### **Archivo:** librerias.Rmd
+### **Archivo:** 01-librerias.Rmd

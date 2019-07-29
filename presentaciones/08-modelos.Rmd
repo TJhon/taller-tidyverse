@@ -57,7 +57,7 @@ knitr::include_graphics("_include/corrr.png")
 class: exercise, middle, center
 ## Ejercicio
 # Analyzar `vehiculos`
-### **Archivo:** 05-vehiculos.Rmd
+### **Archivo:** 11-vehiculos.Rmd
 
 ---
 class: dark, middle, center
@@ -212,7 +212,7 @@ class: exercise, middle, center
 
 ## Ejercicio
 # Modelos con `tidymodels`
-### **Archivo:** tidymodels.Rmd
+### **Archivo:** 12-tidymodels.Rmd
 
 ---
 class: dark, middle, center
@@ -283,4 +283,4 @@ partir %>%
 class: exercise, middle, center
 ## Ejercicio
 # Modelos por segmentos
-### **Archivo:** modelos.Rmd
+### **Archivo:** 13-modelos.Rmd

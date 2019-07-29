@@ -111,4 +111,8 @@ map_dfr(lf, read_csv, .id = "archivo")
 ##  5 ejercicios… 1/5/2… Hernan…         70     90       100
 ##  6 ejercicios… 1/6/2… Hernan…         66     90       100
 ```
-
+---
+class: exercise, middle, center
+## Ejercicio
+# Programación funcional
+### **Archivo:** 10-programacion.Rmd

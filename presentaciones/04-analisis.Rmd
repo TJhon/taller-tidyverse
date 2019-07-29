@@ -290,4 +290,11 @@ class: regular
 class: exercise, middle, center
 ## Ejercicio
 # Analizar Datos con el `tidyverse`
-### **Archivo:** tidyverse-1.Rmd & tidyverse-2.Rmd
+### **Archivo:** 04-tidyverse-1.Rmd & 05-tidyverse-2.Rmd
+
+---
+class: exercise, middle, center
+## Ejercicio
+# Analizar Datos con el `tidyverse`
+### **Archivo:** 06-fechas.Rmd & 07-texto.Rmd
+
