@@ -7,8 +7,8 @@ output:
 
 Cargue los paquetes en su sesión de R
 
-```{r}
-library(ggplot2)
+```{r setup}
+library(tidyverse)
 library(datos)
 ```
 
@@ -60,5 +60,18 @@ Grabemos la gráfica dentro de la variable
 
 ```{r}
 ggsave("cortes-nuevo.png", p, height = 8, width = 10)
+```
+
+Multiples modelos se pueden comparar mediante agregando más capas
+
+```{r}
+diamantes %>%
+  ggplot(aes(precio, quilate)) +
+  geom_point(aes(color = claridad), alpha = 0.3) +
+  geom_smooth(method = "lm", color="pink") +
+  geom_smooth(method = "lm", formula=y~poly(x,3), color="red") +
+  geom_smooth(method = "lm", formula=y~log(x), color="blue") +
+  geom_smooth(color="black")+ # LOESS
+  theme_minimal()
 ```
 
