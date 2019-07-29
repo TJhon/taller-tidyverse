@@ -80,7 +80,7 @@ class: regular
 
 <br/>
 
-## Navegue al folder llamado "**R**"
+## Navegue al folder llamado "**instalacion**"
 
 ## Abra el archivo "**instalar-paquetes.R**"
 
