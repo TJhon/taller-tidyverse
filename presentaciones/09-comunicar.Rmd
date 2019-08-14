@@ -44,7 +44,7 @@ knitr::include_graphics("_include/hex/rmarkdown.png")
 * Se ejecuta complete o en bloques
 
 
-* Multiples lenguajes (R, SQL, pythong, etc.)
+* Multiples lenguajes (R, SQL, python, etc.)
 
 ]
 
